@@ -24,7 +24,7 @@ This script:
 **Date Tested:** 12/02/2025
 **Tested By:** Dennis Medder  
 **Tested On:** Windows 11  
-**PowerShell Version:** 5.1 / 7.x
+**PowerShell Version:** 5.1.26100.7019
 
 ---
 
