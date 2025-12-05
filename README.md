@@ -59,7 +59,7 @@ The repository includes:
 
 ## 🚀 Future Additions
 
-- More Windows 10/11 STIG controls  
+- More Windows 11 STIG controls  
 - Automated rollback scripts  
 - Compliance validation scripts  
 - Hardening baselines  
