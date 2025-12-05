@@ -1,19 +1,22 @@
 # Windows STIG Remediation Scripts
 
-This repository contains PowerShell scripts used to automate DISA STIG hardening for Windows 10/11 systems.  
+This repository contains PowerShell scripts used to automate DISA STIG hardening for Windows 11 systems.  
 Each STIG control is implemented, documented, and organized into its own folder, making this repo a clean and scalable portfolio project for cybersecurity and system hardening work.
 
 These scripts were created as part of real cybersecurity internship experience and demonstrate practical Windows hardening, registry enforcement, and compliance automation.
 
 ---
 
+
 ## 📁 Repository Structure
 
+```
 windows-stig-remediation/
 ├── WN11-AU-000500/
-│ ├── README.md
-│ └── WN11-AU-000500-ApplicationLogMaxSize.ps1
+│   ├── README.md
+│   └── WN11-AU-000500-ApplicationLogMaxSize.ps1
 └── (More STIGs will be added)
+```
 
 
 ---
