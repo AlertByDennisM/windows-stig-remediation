@@ -20,9 +20,11 @@
     PowerShell Ver. : 
 
 .USAGE
-    Put any usage instructions here.
-    Example syntax:
-    PS C:\> .\STIG-ID-WN11-AU-000500.ps1 
+     Run as Administrator:
+    PS C:\> .\STIG-ID-WN11-AU-000500.ps1
+
+    Verify:
+    PS C:\> Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application" -Name MaxSize
 #>
 
 # STIG: Configure Application Event Log MaxSize
