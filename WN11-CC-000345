@@ -1,0 +1,80 @@
+🛡️ STIG: WN11-CC-000345 — WinRM Basic Authentication Must Be Disabled
+📌 Overview
+This Security Technical Implementation Guide (STIG) ensures that Basic authentication is disabled for Windows Remote Management (WinRM).
+Basic authentication transmits credentials in plain text, which can be intercepted by attackers. Disabling it enforces stronger authentication mechanisms and reduces the risk of credential compromise.
+🔍 STIG Details
+STIG ID: WN11-CC-000345
+Severity: CAT I (High)
+CCI: CCI-000877
+SRG: SRG-OS-000125-GPOS-00065
+⚠️ Vulnerability Discussion
+Basic authentication sends usernames and passwords in a format that is easily decoded. If intercepted, attackers can gain unauthorized access to systems.
+Disabling Basic authentication ensures that only secure authentication methods (e.g., Kerberos, Negotiate) are used for WinRM connections.
+🔎 Check (Manual Verification)
+Open Registry Editor:
+regedit
+Navigate to:
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service
+Verify the following value:
+Name: AllowBasic
+Type: REG_DWORD
+Value: 0
+❌ Finding:
+Registry path does not exist
+OR value is missing
+OR value is not set to 0
+🔧 Fix (Manual Remediation)
+Step 1: Create Registry Path (if it does not exist)
+Navigate to:
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows
+Create the following keys:
+WinRM
+Service
+Step 2: Create the Registry Value
+Right-click → New → DWORD (32-bit) Value
+Name: AllowBasic
+Set Value:
+Decimal: 0
+(Hexadecimal 0 is also acceptable)
+💻 PowerShell Remediation Script
+<#
+.SYNOPSIS
+    Disables Basic Authentication for WinRM by ensuring AllowBasic is set to 0.
+
+.NOTES
+    Author          : Dennis Medder
+    GitHub          : github.com/AlertByDennisM
+    STIG-ID         : WN11-CC-000345
+#>
+
+# Define registry path
+$registryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
+
+# Check if the path exists, if not create it
+if (-not (Test-Path $registryPath)) {
+    New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM" -Name "Service" -Force | Out-Null
+}
+
+# Set the AllowBasic value to 0
+New-ItemProperty -Path $registryPath `
+    -Name "AllowBasic" `
+    -PropertyType DWORD `
+    -Value 0 `
+    -Force | Out-Null
+
+Write-Output "WinRM Basic Authentication has been disabled."
+✅ Verification
+After applying the fix:
+Run the following PowerShell command:
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
+✔ Expected Output:
+AllowBasic : 0
+🧠 Lessons Learned
+Not all STIG registry paths exist by default—you must create them manually or via script.
+Understanding authentication mechanisms (Basic vs Kerberos/Negotiate) is critical for both:
+STIG compliance
+SOC/Cybersecurity roles
+PowerShell can efficiently:
+Validate registry paths
+Create missing keys
+Enforce secure configurations at scale
