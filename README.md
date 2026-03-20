@@ -7,7 +7,6 @@ These scripts were created as part of real cybersecurity internship experience a
 
 ---
 
-
 ## 📁 Repository Structure
 
 ```
@@ -15,9 +14,22 @@ windows-stig-remediation/
 ├── WN11-AU-000500/
 │   ├── README.md
 │   └── WN11-AU-000500-ApplicationLogMaxSize.ps1
+├── WN11-CC-000345/
+│   ├── README.md
+│   └── WN11-CC-000345-WinRM-AllowBasic.ps1
 └── (More STIGs will be added)
 ```
 
+---
+
+## 📋 Completed STIGs
+
+This repository contains completed DISA STIG controls with full documentation and PowerShell remediation scripts.
+
+| STIG ID | Description | Status |
+|--------|------------|--------|
+| [WN11-AU-000500](./WN11-AU-000500) | Application Event Log MaxSize | ✅ Complete |
+| [WN11-CC-000345](./WN11-CC-000345) | WinRM Basic Authentication Disabled | ✅ Complete |
 
 ---
 
