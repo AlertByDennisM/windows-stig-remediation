@@ -17,6 +17,9 @@ windows-stig-remediation/
 ├── WN11-CC-000345/
 │   ├── README.md
 │   └── WN11-CC-000345-WinRM-AllowBasic.ps1
+├── WN11-AC-000005/
+│   ├── README.md
+│   └── WN11-AC-000005-AccountLockoutDuration.ps1
 └── (More STIGs will be added)
 ```
 
@@ -30,7 +33,7 @@ This repository contains completed DISA STIG controls with full documentation an
 |--------|------------|--------|
 | [WN11-AU-000500](./WN11-AU-000500) | Application Event Log MaxSize | ✅ Complete |
 | [WN11-CC-000345](./WN11-CC-000345) | WinRM Basic Authentication Disabled | ✅ Complete |
-
+| [WN11-AC-000005](./WN11-AC-000005) | Account Lockout Duration | ✅ Complete |
 ---
 
 ## 🎯 Project Goals
